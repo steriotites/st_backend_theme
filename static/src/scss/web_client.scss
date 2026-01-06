@@ -1,0 +1,124 @@
+:root {
+    --NavBar-entry-backgroundColor: #502e82 !important;
+}
+
+
+
+.custom-wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.custom-sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #111827;
+    /* dark slate */
+    color: #e5e7eb;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-sidebar .logo {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 1px solid #1f2937;
+}
+
+.custom-menu {
+    list-style: none;
+    padding: 8px;
+    margin: 0;
+    height: calc(100vh - 56px);
+
+    overflow-y: auto;
+
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.custom-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.custom-menu li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.custom-menu li:hover {
+    background: #1f2937;
+}
+
+.custom-menu li.active {
+    background: #2563eb;
+    color: white;
+}
+
+.menu-icon {
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+}
+
+.menu-label {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+
+/* Main container */
+.custom-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top bar */
+.custom-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    header {
+        width: 100% !important;
+    }
+
+    .o_main_navbar {
+        background: #502e82 !important;
+    }
+}
+
+/* Odoo content area */
+.custom-content {
+    flex: 1;
+    overflow: auto;
+    background: #f6f7fa;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    .o_action_manager {
+        height: 100% !important;
+    }
+}
+
+
+.o_spreadsheet_dashboard_action .o_renderer {
+    height: 80vh !important;
+    width: 100% !important;
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<templates id="templateWebClient" xml:space="preserve">
+
+
+    <t t-inherit="web.WebClient" t-inherit-mode="extension">
+        <xpath expr="." position="replace">
+            <div class="custom-wrapper">
+
+                <aside class="custom-sidebar">
+                    <div class="logo">
+                        <span class="" t-esc="user.activeCompany.name"/>
+                    </div>
+
+                    <ul class="custom-menu">
+                        <t t-foreach="menuService.getApps()" t-as="app" t-key="app.id">
+                            <li
+                                t-att-class="{'active': state.currentAppId ? state.currentAppId === app.appID : menuService.getApps()?.[0]?.id === app.id}"
+                                t-att-data-menu-xmlid="app.xmlid"
+                                t-on-click="() => this.onSidebarMenuSelection(app)"
+                                >
+                                <span class="menu-icon" t-attf-style="background-image: url('#{this._getMenuIcon(app)}')"/>
+                                <span class="menu-label">
+                                    <t t-esc="app.name"/>
+                                </span>
+                            </li>
+                        </t>
+                    </ul>
+
+                </aside>
+
+
+                <div class="custom-main">
+                    <header class="custom-topbar">
+                        <t t-if="!state.fullscreen">
+                            <NavBar />
+                        </t>
+                    </header>
+                    <div class="custom-content">
+                        <ActionContainer />
+                        <MainComponentsContainer />
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
+
+
+<!-- CURRENT APP SECTIONS (left side modules inside an app) -->
+<!-- <ul class="custom-submenu" t-if="menuService.getCurrentApp()">
+        <t t-set="sections" t-value="menuService.getCurrentMenu()?.children or []"/>
+        <t t-foreach="sections" t-as="section" t-key="section.id">
+            <li
+                t-att-data-menu-id="section.id"
+                t-on-click="() => this.onSidebarMenuSelection(section)"
+            >
+                <i class="fa fa-angle-right"></i>
+                <t t-esc="section.name"/>
+            </li>
+        </t>
+    </ul> -->
