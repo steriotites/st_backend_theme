@@ -1,7 +1,7 @@
 {
     'name': 'Backend Theme Professional',
-    'version': '19.0.1.0.0',
-    'summary': 'Modern professional backend UI theme for Odoo 19',
+    'version': '18.0.1.0.0',
+    'summary': 'Modern professional backend UI theme for Odoo 18',
     'description': """
 A fully customized backend theme with:
 - Custom sidebar
@@ -35,4 +35,5 @@ Free community theme by Steriotites.
     'installable': True,
     'application': False,
     'auto_install': False,
+
 }
